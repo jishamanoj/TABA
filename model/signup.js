@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const signupSchema = new mongoose.Schema({
   regNo: {
     type: String,
-    required: true,
     default:""
   },
 
@@ -11,19 +10,14 @@ const signupSchema = new mongoose.Schema({
     type: String,
     default:""
   },
-  lastName: {
-    type: String,
-    default:""
-  },
+  
 
   phone: {
     type: String,
-    required: true,
     default:""
   },
   password: {
     type: String,
-    required: true,
     default:""
   },
 
@@ -50,13 +44,24 @@ const signupSchema = new mongoose.Schema({
     default:""
   },
 
-  clerkName: {
-    type: Array,
+  clerkName1: {
+    type: String,
     default:""
   },
 
-  clerkPhone: {
-    type: Array,
+  clerkName2: {
+    type: String,
+    default:""
+  },
+
+
+  clerkPhone1: {
+    type: String,
+    default:""
+  },
+
+  clerkPhone2:{
+    type: String,
     default:""
   },
 
@@ -95,19 +100,24 @@ const signupSchema = new mongoose.Schema({
     default:""
     // required:true,
   },
+
+  token:{
+    type:String
+  },
+  
   image: {
 
     data:{
       type :Buffer,
-      required : true,
+      
     },
     contentType:{
       type :String,
-      required: true,
+      
     },
     name: {
       type :String,
-    required: true,
+    
     }
     
   },
@@ -117,17 +127,22 @@ const signupSchema = new mongoose.Schema({
   //   data: Buffer
   // },
   isRegisteredUser: {
-    type: Boolean,
+    type: String,
     required: true,
     default: false
   },
 
   isValidUser: {
-    type: Boolean,
+    type: String,
     required: true,
     default:false
   
   },
+
+  paidAmount: {
+    type: String,
+    default:"0"
+  }
 },{timestamps : true});
 
 const signup = mongoose.model('signup', signupSchema);
